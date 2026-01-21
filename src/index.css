@@ -601,23 +601,24 @@ footer .container {
     order: 1;
   }
 
-  .tagline {
+  .hero-screenshot {
     order: 2;
+    margin: 0.5rem 0;
+  }
+
+  .tagline {
+    order: 3;
   }
 
   .description {
-    order: 3;
+    order: 4;
     margin-left: auto;
     margin-right: auto;
   }
 
   .hero-badge {
-    order: 4;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-screenshot {
     order: 5;
+    margin-bottom: 1.5rem;
   }
 
   .cta-buttons {
