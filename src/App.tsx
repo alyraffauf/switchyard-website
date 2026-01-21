@@ -385,7 +385,7 @@ function App() {
             ))}
           </nav>
           <p className="footer-copy">
-            Made by <a href="https://github.com/alyraffauf">Aly Raffauf</a> ·
+            Made by <a href="https://aly.codes">Aly Raffauf</a> ·
             GPL-3.0-or-later
           </p>
         </div>
