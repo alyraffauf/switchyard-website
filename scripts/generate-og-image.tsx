@@ -1,3 +1,4 @@
+import React from "react";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 import { readFileSync, writeFileSync } from "fs";
@@ -30,67 +31,53 @@ async function generateOgImage() {
     ),
   ]);
 
-  const icon = `data:image/svg+xml,${encodeURIComponent(
+  const iconSrc = `data:image/svg+xml,${encodeURIComponent(
     readFileSync(join(rootDir, "public/icon.svg"), "utf-8"),
   )}`;
 
   const svg = await satori(
-    {
-      type: "div",
-      props: {
-        style: {
-          height: "100%",
-          width: "100%",
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        background: `linear-gradient(135deg, ${colors.bg} 0%, ${colors.bgAlt} 100%)`,
+        fontFamily: "Inter",
+      }}
+    >
+      <div
+        style={{
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
-          background: `linear-gradient(135deg, ${colors.bg} 0%, ${colors.bgAlt} 100%)`,
-          fontFamily: "Inter",
-        },
-        children: [
-          // Icon + title
-          {
-            type: "div",
-            props: {
-              style: {
-                display: "flex",
-                alignItems: "center",
-                gap: "24px",
-                marginBottom: "24px",
-              },
-              children: [
-                { type: "img", props: { src: icon, width: 100, height: 100 } },
-                {
-                  type: "span",
-                  props: {
-                    style: {
-                      fontSize: 80,
-                      fontWeight: 700,
-                      color: colors.text,
-                      letterSpacing: "-0.02em",
-                    },
-                    children: "Switchyard",
-                  },
-                },
-              ],
-            },
-          },
-          // Tagline
-          {
-            type: "div",
-            props: {
-              style: {
-                fontSize: 36,
-                fontWeight: 500,
-                color: colors.textMuted,
-              },
-              children: "A rule-based browser launcher for Linux.",
-            },
-          },
-        ],
-      },
-    },
+          gap: "24px",
+          marginBottom: "24px",
+        }}
+      >
+        <img src={iconSrc} width={100} height={100} />
+        <span
+          style={{
+            fontSize: 80,
+            fontWeight: 700,
+            color: colors.text,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Switchyard
+        </span>
+      </div>
+      <div
+        style={{
+          fontSize: 36,
+          fontWeight: 500,
+          color: colors.textMuted,
+        }}
+      >
+        A rules-based browser launcher for Linux.
+      </div>
+    </div>,
     {
       width: 1200,
       height: 630,
