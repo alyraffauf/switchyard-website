@@ -10,6 +10,7 @@ const rootDir = join(__dirname, "..");
 
 // Dark mode colors from index.css
 const colors = {
+  primary: "#6ab377",
   bg: "#0f1410",
   bgAlt: "#151c17",
   text: "#e8ebe9",
@@ -73,9 +74,23 @@ async function generateOgImage() {
           fontSize: 36,
           fontWeight: 500,
           color: colors.textMuted,
+          marginBottom: "32px",
         }}
       >
         A rules-based browser launcher for Linux.
+      </div>
+      <div
+        style={{
+          display: "flex",
+          padding: "12px 28px",
+          background: colors.primary,
+          color: "#ffffff",
+          borderRadius: "12px",
+          fontSize: 24,
+          fontWeight: 600,
+        }}
+      >
+        Download Now
       </div>
     </div>,
     {

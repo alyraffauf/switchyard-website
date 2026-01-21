@@ -259,10 +259,9 @@ function App() {
               <img src={icon} alt="" className="hero-icon" />
               <h1>Switchyard</h1>
             </div>
-            <p className="tagline">Open every link in the right browser.</p>
+            <p className="tagline">A rules-based browser launcher for Linux.</p>
             <p className="description">
-              Work links in Chrome. Personal links in Firefox. Define your rules
-              once, and Switchyard handles the rest.
+              Work links in Chrome. Personal links in Firefox.
             </p>
             <div className="hero-badge">100% Free & Open Source</div>
             <div className="cta-buttons">
