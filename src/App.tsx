@@ -110,8 +110,7 @@ interface FooterLink {
 
 const REPO_URL = "https://github.com/alyraffauf/switchyard";
 const DONATE_URL = "https://ko-fi.com/alyraffauf";
-// @ts-expect-error Reserved for future use when Flatpak is enabled
-const FLATHUB_URL = "https://flathub.org/apps/io.github.alyraffauf.Switchyard";
+// const FLATHUB_URL = "https://flathub.org/apps/io.github.alyraffauf.Switchyard";
 const SCREENSHOTS_BASE = `https://raw.githubusercontent.com/alyraffauf/switchyard/master/docs/images`;
 
 const screenshots: Screenshot[] = [
@@ -125,19 +124,19 @@ const features: Feature[] = [
     icon: "checkCircle",
     title: "Automatic Routing",
     description:
-      "Match URLs by domain, path, or regex. Links open in the right browser without you lifting a finger.",
+      "Match URLs by domain, path, or regular expression. Links open in the right browser automatically.",
   },
   {
     icon: "bolt",
     title: "Browser Launcher",
     description:
-      "No matching rule? A laucnher appears so you can choose your browser with a keystroke or a click.",
+      "No matching rule? Choose your browser with a quick keystroke or mouse click.",
   },
   {
     icon: "sliders",
     title: "Fast & Native",
     description:
-      "A native GNOME app that launches instantly. No background processes, no resource drain.",
+      "A native GNOME app that launches instantly. No background services, no resource drain.",
   },
 ];
 
@@ -159,7 +158,8 @@ const installOptions: InstallOption[] = [
     icon: "github",
     title: "Build from Source",
     description: "Requires Go 1.24+ and GTK4",
-    command: "git clone https://github.com/alyraffauf/switchyard",
+    link: REPO_URL,
+    linkText: "View on GitHub",
   },
 ];
 
@@ -178,8 +178,9 @@ const heroButtons: HeroButton[] = [
   },
   {
     href: "#install",
-    label: "Install",
+    label: "Get Started",
     icon: "download",
+    primary: true,
   },
   {
     href: DONATE_URL,
@@ -216,7 +217,7 @@ pattern = "youtube.com"
 [[rules.conditions]]
 type = "domain"
 pattern = "twitch.tv"`,
-    title: "Or Edit Config Files",
+    title: "Plain Text Configuration",
     description:
       "Prefer text editors? Define rules in a simple TOML file. Easy to version control, share, and back up.",
   },
@@ -330,7 +331,7 @@ function App() {
       {/* Features */}
       <section className="features">
         <div className="container">
-          <h2>Why Switchyard?</h2>
+          <h2>Key Features</h2>
           <div className="features-grid">
             {features.map((feature) => (
               <div key={feature.title} className="feature">
@@ -348,7 +349,7 @@ function App() {
       {/* Installation */}
       <section className="install" id="install">
         <div className="container">
-          <h2>Install</h2>
+          <h2>Get Started</h2>
           <div className="install-options">
             {installOptions.map((option) => (
               <div key={option.title} className="install-option">
