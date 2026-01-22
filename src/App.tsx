@@ -110,7 +110,7 @@ interface FooterLink {
 
 const REPO_URL = "https://github.com/alyraffauf/switchyard";
 const DONATE_URL = "https://ko-fi.com/alyraffauf";
-// const FLATHUB_URL = "https://flathub.org/apps/io.github.alyraffauf.Switchyard";
+const FLATHUB_URL = "https://flathub.org/apps/io.github.alyraffauf.Switchyard";
 const SCREENSHOTS_BASE = `https://raw.githubusercontent.com/alyraffauf/switchyard/master/docs/images`;
 
 const screenshots: Screenshot[] = [
@@ -141,13 +141,13 @@ const features: Feature[] = [
 ];
 
 const installOptions: InstallOption[] = [
-  // {
-  //   icon: "flatpak",
-  //   title: "Flatpak",
-  //   description: "Recommended for most users",
-  //   link: FLATHUB_URL,
-  //   linkText: "View on Flathub",
-  // },
+  {
+    icon: "flatpak",
+    title: "Flatpak",
+    description: "Recommended for most users",
+    link: FLATHUB_URL,
+    linkText: "View on Flathub",
+  },
   {
     icon: "nixos",
     title: "Nix Flake",
@@ -164,24 +164,24 @@ const installOptions: InstallOption[] = [
 ];
 
 const heroButtons: HeroButton[] = [
-  // {
-  //   href: FLATHUB_URL,
-  //   label: "Flathub",
-  //   icon: "flatpak",
-  //   primary: true,
-  // },
+  {
+    href: FLATHUB_URL,
+    label: "Flathub",
+    icon: "flatpak",
+    primary: true,
+  },
   {
     href: REPO_URL,
     label: "GitHub",
     icon: "github",
     primary: true,
   },
-  {
-    href: "#install",
-    label: "Get Started",
-    icon: "download",
-    primary: true,
-  },
+  // {
+  //   href: "#install",
+  //   label: "Get Started",
+  //   icon: "download",
+  //   primary: true,
+  // },
   {
     href: DONATE_URL,
     label: "Donate",
