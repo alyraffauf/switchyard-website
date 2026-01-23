@@ -294,11 +294,29 @@ function App() {
         </div>
       </section>
 
+      {/* Features */}
+      <section className="features">
+        <div className="container">
+          <h2>Key Features</h2>
+          <div className="features-grid">
+            {features.map((feature) => (
+              <div key={feature.title} className="feature">
+                <div className="feature-icon">
+                  <Icon name={feature.icon} />
+                </div>
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Showcases */}
       {showcases.map((showcase, index) => (
         <section
           key={showcase.title}
-          className={`showcase ${index % 2 === 1 ? "showcase-reverse" : ""}`}
+          className={`showcase ${index % 2 === 0 ? "showcase-alt" : ""}`}
         >
           <div className="showcase-content">
             {showcase.screenshot && (
@@ -326,24 +344,6 @@ function App() {
           </div>
         </section>
       ))}
-
-      {/* Features */}
-      <section className="features">
-        <div className="container">
-          <h2>Key Features</h2>
-          <div className="features-grid">
-            {features.map((feature) => (
-              <div key={feature.title} className="feature">
-                <div className="feature-icon">
-                  <Icon name={feature.icon} />
-                </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Installation */}
       <section className="install" id="install">
