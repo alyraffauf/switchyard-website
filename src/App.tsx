@@ -143,28 +143,28 @@ const features: Feature[] = [
       "No matching rule? Launch a browser with a quick keystroke or mouse click.",
   },
   {
-    icon: "zap",
-    title: "Fast & Native",
-    description:
-      "A native GNOME app that launches instantly. No background services.",
-  },
-  {
     icon: "link",
-    title: "Custom URI Scheme",
+    title: "Custom URLs",
     description:
-      "Build switchyard:// links to encode rules directly, perfect for notes and to-dos.",
-  },
-  {
-    icon: "eyeOff",
-    title: "Hide Unwanted Browsers",
-    description:
-      "Filter out browsers you don't need from the picker without uninstalling them.",
+      "Encode rules directly with switchyard:// links. Perfect for notes and to-dos.",
   },
   {
     icon: "star",
     title: "Favorite Browser",
     description:
       "Pin your favorite browser to appear first and act as fallback.",
+  },
+  {
+    icon: "zap",
+    title: "Fast & Native",
+    description:
+      "A native GNOME app that launches instantly. No background services.",
+  },
+  {
+    icon: "eyeOff",
+    title: "Hide Unwanted Browsers",
+    description:
+      "Filter out browsers you don't need from the picker without uninstalling them.",
   },
 ];
 
