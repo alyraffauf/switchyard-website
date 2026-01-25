@@ -308,6 +308,14 @@ a:hover {
     padding: 0 var(--container-padding);
 }
 
+.showcase-reverse .showcase-content {
+    direction: rtl;
+}
+
+.showcase-reverse .showcase-content > * {
+    direction: ltr;
+}
+
 .showcase-text h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
@@ -423,6 +431,10 @@ a:hover {
     background: var(--bg-alt);
 }
 
+.install-alt {
+    background: var(--bg);
+}
+
 .install-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -509,6 +521,10 @@ a:hover {
 footer {
     padding: 3rem 0;
     background: var(--bg);
+}
+
+footer.footer-alt {
+    background: var(--bg-alt);
 }
 
 footer .container {

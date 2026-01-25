@@ -30,8 +30,8 @@ const icons = {
   link: (
     <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
   ),
-  eyeOff: (
-    <path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+  shuffle: (
+    <path d="M16 3h5v5m0-5l-6 6m-2 8l8 8m0-5v5h-5M4 4l5 5m11 11l-5-5M4 20l5-5" />
   ),
   star: (
     <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -121,12 +121,25 @@ interface FooterLink {
 const REPO_URL = "https://github.com/alyraffauf/switchyard";
 const DONATE_URL = "https://ko-fi.com/alyraffauf";
 const FLATHUB_URL = "https://flathub.org/apps/io.github.alyraffauf.Switchyard";
-const SCREENSHOTS_BASE = `https://raw.githubusercontent.com/alyraffauf/switchyard/master/docs/images`;
+const SCREENSHOTS_BASE = `https://raw.githubusercontent.com/alyraffauf/switchyard/master/data/screenshots`;
 
 const screenshots: Screenshot[] = [
-  { src: `${SCREENSHOTS_BASE}/switchyard-picker.png`, alt: "Browser launcher" },
-  { src: `${SCREENSHOTS_BASE}/switchyard.png`, alt: "Settings panel" },
-  { src: `${SCREENSHOTS_BASE}/switchyard-rulesedit.png`, alt: "Rule editor" },
+  {
+    src: `${SCREENSHOTS_BASE}/launcher.png`,
+    alt: "Browser launcher",
+  },
+  {
+    src: `${SCREENSHOTS_BASE}/browser-rules.png`,
+    alt: "Browser rules panel",
+  },
+  {
+    src: `${SCREENSHOTS_BASE}/link-redirections.png`,
+    alt: "Link redirections panel",
+  },
+  {
+    src: `${SCREENSHOTS_BASE}/edit-rules.png`,
+    alt: "Rule editor",
+  },
 ];
 
 const features: Feature[] = [
@@ -141,6 +154,12 @@ const features: Feature[] = [
     title: "Browser Launcher",
     description:
       "No matching rule? Launch a browser with a quick keystroke or mouse click.",
+  },
+  {
+    icon: "shuffle",
+    title: "Link Redirections",
+    description:
+      "Rewrite URLs before they open. Strip trackers, swap domains, and more.",
   },
   {
     icon: "link",
@@ -159,12 +178,6 @@ const features: Feature[] = [
     title: "Fast & Native",
     description:
       "A native GNOME app that launches instantly. No background services.",
-  },
-  {
-    icon: "eyeOff",
-    title: "Hide Unwanted Browsers",
-    description:
-      "Filter out browsers you don't need from the picker without uninstalling them.",
   },
 ];
 
@@ -225,15 +238,13 @@ const showcases: Showcase[] = [
       "Create and manage rules with a clean, native interface. No config files required—just point and click.",
   },
   {
+    screenshot: screenshots[2],
+    title: "Your Links, Your Way",
+    description:
+      "Take control of every link you open. Strip tracking parameters and enforce privacy-friendly frontends automatically.",
+  },
+  {
     code: `[[rules]]
-name = "Work"
-browser = "firefox.desktop"
-
-[[rules.conditions]]
-type = "domain"
-pattern = "github.com"
-
-[[rules]]
 name = "Video Sites"
 logic = "any"
 browser = "brave-browser.desktop"
@@ -344,7 +355,7 @@ function App() {
       {showcases.map((showcase, index) => (
         <section
           key={showcase.title}
-          className={`showcase ${index % 2 === 0 ? "showcase-alt" : ""}`}
+          className={`showcase ${index % 2 === 0 ? "showcase-alt" : "showcase-reverse"}`}
         >
           <div className="showcase-content">
             {showcase.screenshot && (
@@ -374,7 +385,10 @@ function App() {
       ))}
 
       {/* Installation */}
-      <section className="install" id="install">
+      <section
+        className={`install ${(showcases.length - 1) % 2 === 0 ? "install-alt" : ""}`}
+        id="install"
+      >
         <div className="container">
           <h2>Get Started</h2>
           <div className="install-options">
@@ -399,7 +413,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer>
+      <footer className={(showcases.length - 1) % 2 === 0 ? "footer-alt" : ""}>
         <div className="container">
           <div className="footer-brand">
             <img src={icon} alt="Switchyard" />
