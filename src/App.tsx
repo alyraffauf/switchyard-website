@@ -110,15 +110,15 @@ function App() {
                 }
               />
             )}
-            <div className="showcase-text">
-              <h2>{showcase.title}</h2>
-              <p>{showcase.description}</p>
-            </div>
             {showcase.code && (
               <pre className="code-block">
                 <code>{showcase.code}</code>
               </pre>
             )}
+            <div className="showcase-text">
+              <h2>{showcase.title}</h2>
+              <p>{showcase.description}</p>
+            </div>
           </div>
         </section>
       ))}
