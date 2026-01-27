@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import "./index.css";
 import icon from "/icon.svg";
 import { Icon } from "./components/Icon";
-import {
-  screenshots,
-  features,
-  heroButtons,
-  showcases,
-  installOptions,
-  footerLinks,
-} from "./data/content";
+import { screenshots } from "./data/screenshots";
+import { features } from "./data/features";
+import { heroButtons } from "./data/heroButtons";
+import { showcases } from "./data/showcases";
+import { installOptions } from "./data/installOptions";
+import { footerLinks } from "./data/footerLinks";
+import { DEV_URL } from "./data/urls";
 
 function App() {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
@@ -166,8 +165,7 @@ function App() {
             ))}
           </nav>
           <p className="footer-copy">
-            Made by <a href="https://aly.codes">Aly Raffauf</a> ·
-            GPL-3.0-or-later
+            Made by <a href={DEV_URL}>Aly Raffauf</a> · GPL-3.0-or-later
           </p>
         </div>
       </footer>
